@@ -119,6 +119,7 @@ Route::controller(c_surat::class)->middleware('auth')->group(function () {
         Route::post('subcon/surat/store', 'storeSurat_subcon')->name('subcon.surat.store');
         Route::get('subcon/surat/edit/{no}', 'editSurat_Subcon')->name('subcon.surat.edit');
         Route::post('subcon/surat/update/{no}', 'updateSurat_Subcon')->name('subcon.surat.update');
+        Route::get('subcon/surat/delete/{no}', 'destroySurat_Subcon')->name('subcon.surat.delete');
 
     // Ajax Surat PO
             // Ubah Status PO

@@ -57,6 +57,11 @@ class m_surat extends Model
         return DB::table('surat')->join('users','surat.id_tujuan','=','users.id')->join('users_detail','users.id','=','users_detail.id_user')->where('no_surat', $no)->first();
     }
 
+    public function deleteData($no)
+    {
+        return DB::table('surat')->where('no_surat', $no)->delete();
+    }
+
 
     //   Kondisi Ketika User dihapus dan User masih punya surat, maka surat akan dijadikan Log
     public function jadiLOG($id, $data)

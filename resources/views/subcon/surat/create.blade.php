@@ -2,22 +2,12 @@
                 <form enctype="multipart/form-data" action="{{route('subcon.surat.store')}}" method="POST" >
                     @csrf
                     <div style="text-align: left" class="row">
-                        <div class="col col-md-12 col-12 mt-2">
-                            <div class="form-group">
-                                <label for="level">Tujuan</label>
-                                <select name="id_tujuan" class="form-control @error('id_tujuan') is-invalid @enderror">
-                                    <option value="" selected disabled>-- Pilih HKI --</option>
-                                    @foreach($hki as $data)
-                                    <option value="{{$data->id}}">{{$data->nama}}</option>
-                                    @endforeach
-                                </select>
-                                @error('id_tujuan')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
+                                    <input type="hidden" name="id_tujuan" value="1">
+                                    @error('id_tujuan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
 
                         <div class="col col-md-12 col-12 mt-2">
                             <div class="form-group">
@@ -131,3 +121,13 @@
                 </form>
             </div>
           
+            <script>
+                $(document).ready(function(){
+                   $("#order_qty,#weight").keyup(function(){
+                     let qty = $("#order_qty").val();
+                     let weigth = qty;
+                     console.log(qty)
+                     $("#weight").val(`${qty}`);
+                   });
+                })
+                </script>

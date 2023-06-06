@@ -136,6 +136,37 @@
            })  
     }
 
+        // function memanggil modal hapus
+        function modalHapus(no){
+        Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Untuk menghapus Surat Jalan?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus'
+        }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "get",
+                url: "{{ url('subcon/surat/delete') }}/" + no,
+                success: function(data) {
+                    console.log(data)
+                    Swal.fire(
+                    'Success!',
+                    'Berhasil hapus Surat Jalan.',
+                    'success',
+                    '3000'
+                    )
+                    location.reload(true);
+                }
+            });
+            
+        }
+    })
+        }
+
  </script>
 
 

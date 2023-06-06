@@ -177,6 +177,12 @@ class c_surat extends Controller
         return redirect()->route('subcon.surat.index')->with('success', 'Surat Berhasil diupdate.');
            
         }
+
+        public function destroySurat_Subcon($no)
+        {
+            $this->surat->deleteData($no);
+            return redirect()->route('subcon.surat.index')->with('success','Berhasil Dihapus');
+        }
          
     
 
