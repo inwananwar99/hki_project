@@ -81,6 +81,7 @@ Route::controller(c_subcon::class)->middleware('auth')->group(function () {
     // Modal Detail PO di Subcon
     Route::get('subcon/po/detailpo/{no}', 'detailPO_Subcon')->name('subcon.po.detailpo');
 
+
                 //  //  pdf
                 //  Route::get('subcon/po/download/{no}', 'downloadpo')->name('subcon.po.download');
 
@@ -116,6 +117,8 @@ Route::controller(c_surat::class)->middleware('auth')->group(function () {
         Route::get('subcon/surat', 'tampilSurat_subcon')->name('subcon.surat.index');
         Route::get('subcon/surat/create', 'createSurat_subcon')->name('subcon.surat.create');
         Route::post('subcon/surat/store', 'storeSurat_subcon')->name('subcon.surat.store');
+        Route::get('subcon/surat/edit/{no}', 'editSurat_Subcon')->name('subcon.surat.edit');
+        Route::post('subcon/surat/update/{no}', 'updateSurat_Subcon')->name('subcon.surat.update');
 
     // Ajax Surat PO
             // Ubah Status PO
