@@ -6,7 +6,7 @@
                             <div class="form-group">
                                 <label for="level">Tujuan</label>
                                 <select name="id_tujuan" class="form-control @error('id_tujuan') is-invalid @enderror">
-                                    <option value="" selected disabled>-- Pilih Subcon --</option>
+                                    <option value="" selected disabled>-- Pilih HKI --</option>
                                     @foreach($hki as $data)
                                     <option value="{{$data->id}}">{{$data->nama}}</option>
                                     @endforeach

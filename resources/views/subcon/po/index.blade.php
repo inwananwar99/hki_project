@@ -11,7 +11,7 @@
     @endif
 	
     <div style="text-align: left">
-        <a href="{{route('hki.po.subcon.create')}}" class="btn btn-primary">Tambah PO</a>
+        {{-- <a href="{{route('hki.po.subcon.create')}}" class="btn btn-primary">Tambah PO</a> --}}
     </div>
 
     <div class="row">
@@ -53,7 +53,7 @@
                             </td>
                             <td style="width:15%">
                                 <a href="#" onclick="modalRead({{$data->no}})" class="btn btn-warning">Read</a>
-                                <a  href="{{route('subcon.po.download', $data->no)}}" class="btn btn-primary">Download</a>
+                                <a href="{{route('subcon.po.download', $data->no)}}" class="btn btn-primary">Download</a>
                             </td>
                         </tr>
                       @endforeach

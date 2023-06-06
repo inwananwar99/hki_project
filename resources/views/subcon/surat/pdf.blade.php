@@ -85,7 +85,7 @@
             </tr>
      </table>
      <div class="judul">
-      <h4 style="font-weight:bold" >PURCHASE ORDER</h4>
+      <h4 style="font-weight:bold" >SURAT JALAN</h4>
       </div>
 
       <div class="identitas">
@@ -114,7 +114,7 @@
 
                                     <td style="width:20%"><p>Issue Date</p></td>
                                     <td style="width:2%"><p>:</p></td>
-                                    <td style="width:78%"><p>{{$from->issue_date}}</p></td>
+                                    <td style="width:78%"><p>{{$from->dibuat}}</p></td>
                               </tr>
                               <tr>
                                     <td style="width:20%"><p>Fax</p></td>

@@ -54,13 +54,24 @@ class c_subcon extends Controller
     {
         $id = Auth::user()->id;
         $data =[
-            'surat' => $this->surat->mySurat_Subcon($id),
+            'surat' => $this->surat->mySurat_Subcon($id)
         ];
         return view ('subcon.surat.index', $data);
     }
 
     // END SURAT
 
+    //Download Surat Subcon
+    public function mySurat_Download($no)
+    {
+        $data =[
+            'from'=> $this->surat->download($no),
+            'hki'=> $this->user->detailHKI(),
+        ];
+        // return view('subcon.po.pdf', $data);
+        $pdf = PDF::loadview('subcon.surat.pdf', $data)->setPaper('legal', 'potrait');;
+	    return $pdf->download('laporan-Surat-Jalan.pdf');
+    }
 
 
 

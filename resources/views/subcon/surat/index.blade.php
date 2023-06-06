@@ -1,4 +1,4 @@
-@extends('layouts.templateBaru')
+@extends('layouts.templateBaru',['title' => 'Surat Jalan'])
 @section('content')
 <div class="container">
 	<h3>Surat Jalan {{Auth::user()->name}}</h3>
@@ -49,8 +49,10 @@
                                 @endif
                             </td>
                             <td>
+                                <a href="{{route('subcon.surat.subcon.edit', $data->no_surat)}}" class="btn btn-warning">Edit</a>
+                                <a id="hapus" onclick="modalHapus({{$data->no_surat}})" href="#" class="btn btn-danger">Delete</a>
                                 <a href="#" onclick="modalREAD({{$data->no_surat}})" class="btn btn-warning">READ</a>
-                                <a href="#" class="btn btn-primary">Download</a>
+                                <a href="{{route('subcon.surat.download', $data->no_surat)}}" class="btn btn-primary">Download</a>
                             </td>
                         </tr>
                         @endforeach
@@ -71,7 +73,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Modal Title</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Buat Surat Jalan</h5>
             </div>
             <div class="modal-body">
                 <p class="mb-0" id="page"></p>

@@ -72,13 +72,14 @@ Route::controller(c_subcon::class)->middleware('auth')->group(function () {
     // PO Supplier
     Route::get('subcon/po', 'myPO_Subcon')->name('subcon.po.index');
     Route::get('subcon/po/download/{no}', 'myPO_Download')->name('subcon.po.download');
-
+    
     // Surat Subcon
     Route::get('subcon/surat', 'mySurat_Subcon')->name('subcon.surat.index');
+    Route::get('subcon/surat/download/{no}', 'mySurat_Download')->name('subcon.surat.download');
 
  
-             // Modal Detail PO di Subcon
-            Route::get('subcon/po/detailpo/{no}', 'detailPO_Subcon')->name('subcon.po.detailpo');
+    // Modal Detail PO di Subcon
+    Route::get('subcon/po/detailpo/{no}', 'detailPO_Subcon')->name('subcon.po.detailpo');
 
                 //  //  pdf
                 //  Route::get('subcon/po/download/{no}', 'downloadpo')->name('subcon.po.download');
