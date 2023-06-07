@@ -25,8 +25,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Surat</th>
-                            <th>Surat Tujuan</th>
+                            <th>Part Name</th>
+                            <th>Part No</th>
+                            <!-- <th>Surat Tujuan</th> -->
                             <th>Order No</th>
                             <th>Delivery Time</th>
                             <th>Status</th>
@@ -37,8 +38,9 @@
                         @foreach($surat as $data)
                         <tr>
                             <td></td>
+                            <td>{{$data->part_name}}</td>
                             <td>{{$data->part_no}}</td>
-                            <td>{{$data->nama}}</td>
+                            <!-- <td>{{$data->nama}}</td> -->
                             <td>{{$data->order_no}}</td>
                             <td>{{$data->delivery_time}}</td>
                             <td>
