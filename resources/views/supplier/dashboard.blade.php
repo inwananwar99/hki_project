@@ -1,7 +1,7 @@
-@extends('layouts.templateBaru')
+@extends('layouts.templateBaru',['title'=>'Dashboard PO Supplier'])
 @section('content')
 <div class="container">
-	<h1>Dashboard Subcon</h1>
+	<h1>Dashboard Supplier</h1>
 	@if (session()->has('success'))
     <div onload="alert()"></div>
 	@endif

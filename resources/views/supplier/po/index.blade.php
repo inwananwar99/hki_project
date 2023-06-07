@@ -1,4 +1,4 @@
-@extends('layouts.templateBaru')
+@extends('layouts.templateBaru',['title'=>'PO Supplier'])
 @section('content')
 <div class="container">
 	<h3>Purchase Order Supplier {{Auth::user()->name}}</h3>

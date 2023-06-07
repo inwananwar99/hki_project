@@ -1,4 +1,4 @@
-@extends('layouts.templateBaru')
+@extends('layouts.templateBaru',['title'=>'Surat Jalan'])
 @section('content')
 <div class="container">
 	<h3>Surat Jalan</h3>
@@ -53,7 +53,7 @@
                                 <a href="#" class="btn btn-success" onclick="modalACC({{$data->no_surat}})">ACC</a>
                                 @endif
                                 <a href="#" class="btn btn-warning" onclick="modalREAD({{$data->no_surat}})">READ</a>
-                                <a href="#" class="btn btn-primary">Download</a>
+                                <a href="{{route('subcon.surat.download', $data->no_surat)}}" class="btn btn-primary">Download</a>
                             </td>
                         </tr>
                         @endforeach

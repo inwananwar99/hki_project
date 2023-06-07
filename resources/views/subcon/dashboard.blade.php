@@ -1,4 +1,4 @@
-@extends('layouts.templateBaru')
+@extends('layouts.templateBaru',['title'=>'Dashboard Subcon'])
 @section('content')
 <div class="container">
 	<h1>Dashboard Subcon</h1>

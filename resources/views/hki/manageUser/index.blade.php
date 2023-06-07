@@ -1,4 +1,4 @@
-@extends('layouts.templateBaru')
+@extends('layouts.templateBaru',['title'=>'Manage User'])
 @section('content')
 <div class="container">
 	<h3>Manage User</h3>

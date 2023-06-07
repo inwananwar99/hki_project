@@ -1,4 +1,4 @@
-@extends('layouts.templateBaru')
+@extends('layouts.templateBaru',['title'=>'Edit PO Subcon'])
 @section('content')
 
 <div class="container">
@@ -81,7 +81,7 @@
                         <div class="col col-md-12 col-12 mt-2">
                             <div class="form-group">
                                 <label for="password">Order No</label>
-                                <input type="number" class="form-control @error('order_no') is-invalid @enderror" id="order_no" name="order_no" placeholder="Masukkan order_no" value="{{$PO->order_no}}">
+                                <input type="text" class="form-control @error('order_no') is-invalid @enderror" id="order_no" name="order_no" placeholder="Masukkan order_no" value="{{$PO->order_no}}">
                                 @error('order_no')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -94,7 +94,7 @@
                         <div class="col col-md-12 col-12 mt-2">
                             <div class="form-group">
                                 <label for="password">PO Number</label>
-                                <input type="number" class="form-control @error('po_number') is-invalid @enderror" id="po_number" name="po_number" placeholder="Masukkan po_number" value="{{$PO->po_number}}">
+                                <input type="text" class="form-control @error('po_number') is-invalid @enderror" id="po_number" name="po_number" placeholder="Masukkan po_number" value="{{$PO->po_number}}">
                                 @error('po_number')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
