@@ -51,6 +51,9 @@ Route::controller(c_purchasingOrder::class)->middleware('auth')->group(function 
     Route::get('hki/po/supplier/edit/{no}', 'editPO_Supplier')->name('hki.po.supplier.edit');
     Route::post('hki/po/supplier/update/{no}', 'updatePO_Supplier')->name('hki.po.supplier.update');
     Route::get('hki/po/supplier/destroy/{no}', 'destroyPO_Supplier')->name('hki.po.supplier.destroy');
+        // Modal Detail PO di Subcon
+    Route::get('hki/supplier/po/detailpo/{no}', 'detailPO_Supplier')->name('hki.supplier.po.detailpo');
+    Route::get('hki/po/supplier/download/{no}', 'myPO_Download')->name('supplier.po.download');
 
 
     // PO Subcon

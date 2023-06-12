@@ -56,10 +56,10 @@
                                     <div class="col-md-6">
                                         <a href="{{route('hki.po.supplier.edit', $data->no)}}" class="btn btn-warning">Edit</a>
                                         <a id="hapus" onclick="modalHapus({{$data->no}})" href="#" class="btn btn-danger">Delete</a>
+                                        <a href="#" onclick="modalRead({{$data->no}})" class="btn btn-info">Read</a>
+                                        <a href="{{route('supplier.po.download', $data->no)}}" class="btn btn-primary">Download</a>
                                     </div>
-                                </div>
-                                
-                              
+                                </div>  
                             </td>
                         </tr>
                       @endforeach
@@ -71,6 +71,23 @@
 	
   
 </div>
+{{--modal--}}
+<div id="exampleModalCenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modal Title</h5>
+            </div>
+            <div class="modal-body">
+                <p class="mb-0" id="page"></p>
+            </div>
+            <div id="modalFooter" class="modal-footer">
+             
+            </div>
+        </div>
+    </div>
+</div>
+{{-- endModal --}}
 @endsection
 
 @section('script')
@@ -158,6 +175,13 @@
              
           });
      }
+     function modalRead(no) {
+        $.get("{{ url('hki/supplier/po/detailpo') }}/" + no, {}, function(data, status) {
+            $("#exampleModalCenterTitle").html(`Detail Purchase Order`)
+            $("#page").html(data);
+            $("#exampleModalCenter").modal('show');
+           })  
+    }
 
  </script>
 

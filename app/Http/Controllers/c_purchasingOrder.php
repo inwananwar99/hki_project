@@ -328,5 +328,25 @@ class c_purchasingOrder extends Controller
         return redirect()->route('hki.po.subcon.index')->with('success','Berhasil Dihapus');
     }
 
+    function detailPO_Supplier($no)
+    {
+        $data = [
+            'PO'=> $this->PO->detailData($no)
+        ];
+        
+        return view('hki.po.supplier.detail', $data);
+
+    }
+
+    public function myPO_Download($no)
+    {
+        $data =[
+            'from'=> $this->PO->download($no),
+            'hki'=> $this->user->detailHKI(),
+        ];
+        // return view('subcon.po.pdf', $data);
+        $pdf = PDF::loadview('po.supplier.download', $data)->setPaper('legal', 'potrait');;
+	    return $pdf->download('laporan-PO.pdf');
+    }
     
 }
