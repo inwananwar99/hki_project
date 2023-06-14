@@ -28,6 +28,16 @@ class m_user extends Model
         return DB::table('users')->where('id', $id)->update($data);
     }
 
+    public function edit($id)
+    {
+        return DB::table('users_detail')->join('users', 'users_detail.id_user','=', 'users.id')->where('id_user', $id)->first();
+    }
+
+    public function updateData($id, $data,$table,$key)
+    {
+        return DB::table($table)->where($key, $id)->update($data);
+    }
+
     public function deleteData($id)
     {
         return DB::table('users')->where('id', $id)->delete();

@@ -40,6 +40,8 @@ Route::controller(c_user::class)->middleware('auth')->group(function () {
     Route::get('hki/user/edit/{id}', 'edit')->name('hki.user.edit');
     Route::post('hki/user/update/{id}', 'update')->name('hki.user.update');
     Route::get('hki/user/destroy/{id}', 'destroy')->name('hki.user.destroy');
+    Route::get('user/profile/{id}', 'getProfile')->name('user.profile');
+    Route::post('profile/user/update/{id}', 'updateProfile')->name('profile.user.update');
 });
 
 // Hki PO

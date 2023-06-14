@@ -115,6 +115,30 @@ class c_user extends Controller
         return view ('hki.manageUser.edit', $data);
     }
 
+    public function getProfile($id){
+        $data =[
+            'profile'=> $this->user->edit($id)
+        ];
+        return view ('profile', $data);
+    }
+
+    public function updateProfile(Request $request, $id)
+    {
+            $data = [
+                'username'=> $request->username
+            ];
+
+            $detail = [
+                'telepon' => $request->telepon,
+                'email' => $request->email,
+                'fax'=> $request->fax,
+                'alamat' => $request->alamat,
+            ];
+        $this->user->updateData($id, $data,'users','id');
+        $this->user->updateData($id, $detail,'users_detail','id_user');
+        return redirect()->route('user.profile',$id)->with('success', 'Profile Berhasil diupdate.');
+    }
+
     public function update(Request $request, $id)
     {
 
