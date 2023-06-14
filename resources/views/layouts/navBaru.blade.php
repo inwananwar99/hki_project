@@ -26,7 +26,7 @@
   <li class="dropdownx"><a class="getstarted scrollto" href="#">{{Auth::user()->username}}<i class="bi bi-chevron-down"></i></a>
     <ul>
       <li><a href="#"></a></li>
-      <li><a href="{{url('hki/profile/'.Auth::user()->id)}}">Profil</a></li>
+      <li><a href="{{url('user/profile/'.Auth::user()->id)}}">Profil</a></li>
       <li>
         <a class="dropdown-item" href="{{ route('user.logout') }}"
         onclick="event.preventDefault();
