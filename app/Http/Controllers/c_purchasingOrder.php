@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ImportUser;
 use App\Models\m_user;
 use App\Models\m_role;
 use App\Models\m_purchasingOrder;
@@ -348,5 +350,13 @@ class c_purchasingOrder extends Controller
         $pdf = PDF::loadview('po.supplier.download', $data)->setPaper('legal', 'potrait');;
 	    return $pdf->download('laporan-PO.pdf');
     }
+
+        //import excel 
+        public function import(Request $request){
+            Excel::import(new ImportUser,
+            $request->file('file')->store('files'));
+            return redirect()->route('hki.po.subcon.index')->with('success','Berhasil Import');
+        }
+        
     
 }
