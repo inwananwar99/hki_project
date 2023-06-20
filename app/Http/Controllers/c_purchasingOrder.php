@@ -353,9 +353,11 @@ class c_purchasingOrder extends Controller
 
         //import excel 
         public function import(Request $request){
-            Excel::import(new ImportUser,
-            $request->file('file')->store('files'));
-            return redirect()->route('hki.po.subcon.index')->with('success','Berhasil Import');
+            if($request["class"] === "Subcon"){
+                Excel::import(new ImportUser,
+                $request->file('file')->store('files'));
+                return redirect()->route('hki.po.subcon.index')->with('success','Berhasil Import');
+            }
         }
         
     

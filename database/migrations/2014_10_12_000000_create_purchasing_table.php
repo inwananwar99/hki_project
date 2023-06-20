@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('purchasing', function (Blueprint $table) {
+        Schema::create('m_purchasing_orders', function (Blueprint $table) {
             $table->id('no');
             $table->string('id_hki');
             $table->string('part_no');
@@ -27,6 +27,11 @@ return new class extends Migration
             $table->string('bom_x_price');
             $table->string('currency_code');
             $table->string('status')->nullable();
+            $table->string('po_number')->nullable();
+            $table->string('order_number')->nullable();
+            $table->string('created_at')->nullable();
+            $table->string('updated_at')->nullable();
+            $table->string('delivery_time')->nullable();
         });
     }
 

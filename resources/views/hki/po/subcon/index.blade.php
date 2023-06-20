@@ -32,8 +32,8 @@
             method="POST"
             enctype="multipart/form-data">
           @csrf
-          <input type="file" name="file"
-                 class="form-control">
+          <input type="file" name="file" class="form-control">
+          <input type="hidden" name="class" value="Subcon">
           <br>
         </div>
         <div class="modal-footer">
