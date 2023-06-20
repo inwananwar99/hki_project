@@ -15,17 +15,17 @@ return new class extends Migration
     {
         Schema::create('purchasing', function (Blueprint $table) {
             $table->id('no');
-            $table->string('part_no');
             $table->string('id_hki');
-            $table->string('id_tujuan')->nullable();
+            $table->string('part_no');
             $table->string('part_name');
-            $table->integer('order_qty');
-            $table->integer('weight');
-            $table->string('order_no');
-            $table->string('po_number');
-            $table->string('payment');
-            $table->string('issue_date');
-            $table->string('delivery_time');
+            $table->string('class')->nullable();
+            $table->integer('composition');
+            $table->integer('unit');
+            $table->string('default_supplier');
+            $table->string('supplier_name');
+            $table->string('unit_price');
+            $table->string('bom_x_price');
+            $table->string('currency_code');
             $table->string('status')->nullable();
         });
     }

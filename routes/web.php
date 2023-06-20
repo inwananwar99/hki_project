@@ -57,6 +57,9 @@ Route::controller(c_purchasingOrder::class)->middleware('auth')->group(function 
     Route::get('hki/supplier/po/detailpo/{no}', 'detailPO_Supplier')->name('hki.supplier.po.detailpo');
     Route::get('hki/po/supplier/download/{no}', 'myPO_Download')->name('supplier.po.download');
 
+    //import PO oleh HKI
+    Route::post('hki/import/po','import')->name('import');
+
 
     // PO Subcon
     Route::get('hki/po/subcon', 'tampilPO_Subcon')->name('hki.po.subcon.index');

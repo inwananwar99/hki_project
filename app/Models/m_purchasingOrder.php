@@ -8,6 +8,20 @@ use Illuminate\Support\Facades\DB;
 
 class m_purchasingOrder extends Model
 {
+    protected $fillable = [
+        'id_hki',
+        'part_no',
+        'part_name',
+        'class',
+        'composition',
+        'unit',
+        'default_supplier',
+        'supplier_name',
+        'unit_price',
+        'bom_x_price',
+        'currency_code'
+    ];
+
     use HasFactory;
 
     public function allData()
@@ -23,7 +37,7 @@ class m_purchasingOrder extends Model
 
     public function tampilPO_Subcon()
     {
-        return DB::table('purchasing')->join('users','purchasing.id_tujuan','=','users.id')->where('users.role_id', '2')->get();
+        return DB::table('m_purchasing_orders')->join('users','m_purchasing_orders.class','=','users.id')->where('users.role_id', '2')->get();
     }
 
     public function addData($data)
@@ -90,6 +104,7 @@ class m_purchasingOrder extends Model
     {
         return DB::table('purchasing')->where('id_tujuan', $id)->update($data);
     }
-    
+
+
     // END Kondisi
 }
