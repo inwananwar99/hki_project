@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class m_purchasingOrder extends Model
 {
     protected $fillable = [
-        'id_hki',
+        'id_tujuan',
         'part_no',
         'part_name',
         'class',
@@ -108,6 +108,10 @@ class m_purchasingOrder extends Model
     public function jadiLOG($id, $data)
     {
         return DB::table('m_purchasing_orders')->where('id_tujuan', $id)->update($data);
+    }
+
+    public function validateImportPO($id){
+        return DB::table('users')->where('id', $id)->get();
     }
 
 
