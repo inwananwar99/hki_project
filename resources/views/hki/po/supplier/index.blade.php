@@ -2,17 +2,50 @@
 @section('content')
 <div class="container">
 	<h3>Purchase Order Supplier</h3>
-	@if (session()->has('success'))
+	@if ($message =session('success'))
     <script>
         window.onload = function () {
-                swal.fire("Berhasil");
+                swal.fire("{{$message}}");
             };
     </script>
     @endif
 	
     <div style="text-align: left">
         <a href="{{route('hki.po.supplier.create')}}" class="btn btn-primary">Tambah PO</a>
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Import PO
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="{{ route('import') }}"
+            method="POST"
+            enctype="multipart/form-data">
+          @csrf
+          <input type="file" name="file" class="form-control">
+          <input type="hidden" name="role" value="3">
+          <br>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Import</button>
+        </div>
+    </form>
+      </div>
     </div>
+  </div>
+    </div>
+    
 
     <div class="row">
         <div class="col col-md-12 col-12 mt-2">
@@ -22,11 +55,11 @@
                         <tr>
                             <th>No</th>
                             <th>Tujuan</th>
-                            <th>Date</th>
+                            {{-- <th>Date</th> --}}
                             <th>Part No</th>
-                            <th>Order QTY</th>
-                            <th>Weight</th>
-                            <th>Order No</th>
+                            {{-- <th>Order QTY</th> --}}
+                            {{-- <th>Weight</th> --}}
+                            {{-- <th>Order No</th> --}}
                             <th>PO Number</th>
                             <th>Delivery Time</th>
                             <th>Action</th>
@@ -37,11 +70,11 @@
                         <tr>
                             <td>{{$data->no}}</td>
                             <td>{{$data->nama}}</td>
-                            <td>{{$data->issue_date}}</td>
+                            {{-- <td>{{$data->issue_date}}</td> --}}
                             <td>{{$data->part_no}}</td>
-                            <td>{{$data->order_qty}}</td>
-                            <td>{{$data->weight}}</td>
-                            <td>{{$data->order_no}}</td>
+                            {{-- <td>{{$data->order_qty}}</td> --}}
+                            {{-- <td>{{$data->weight}}</td> --}}
+                            {{-- <td>{{$data->order_no}}</td> --}}
                             <td>{{$data->po_number}}</td>
                             <td>{{$data->delivery_time}}</td>
                             <td style="width:40%">

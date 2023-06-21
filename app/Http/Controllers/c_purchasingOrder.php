@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Validators\ValidationException;
 use App\Imports\ImportUser;
+use App\Imports\ImportSupplier;
 use App\Models\m_user;
 use App\Models\m_role;
 use App\Models\m_purchasingOrder;
@@ -353,10 +355,13 @@ class c_purchasingOrder extends Controller
 
         //import excel 
         public function import(Request $request){
-            if($request["class"] === "Subcon"){
-                Excel::import(new ImportUser,
+            if($request['role'] === "2"){
+                Excel::import(new ImportUser, $request->file('file')->store('files'));
+                return redirect()->route('hki.po.subcon.index')->with('success','Berhasil Import PO');
+            }else{
+                Excel::import(new ImportSupplier,
                 $request->file('file')->store('files'));
-                return redirect()->route('hki.po.subcon.index')->with('success','Berhasil Import');
+                return redirect()->route('hki.po.supplier.index')->with('success','Berhasil Import PO');   
             }
         }
         
