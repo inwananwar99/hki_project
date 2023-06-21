@@ -354,14 +354,34 @@ class c_purchasingOrder extends Controller
     }
 
         //import excel 
+        // public function validateImport(Request $request){
+        //     $fileArray = Excel::toArray(new ImportUser, $request->file('file')->store('files'));
+        //     // dd($fileArray[0]);
+        //     foreach ($fileArray[0] as $key){
+        //         $id = $key[5];
+        //         DB::table('users')->where('id',$id)->get();
+        //     }
+        // }
         public function import(Request $request){
-            if($request['role'] === "2"){
-                Excel::import(new ImportUser, $request->file('file')->store('files'));
-                return redirect()->route('hki.po.subcon.index')->with('success','Berhasil Import PO');
-            }else{
-                Excel::import(new ImportSupplier,
-                $request->file('file')->store('files'));
-                return redirect()->route('hki.po.supplier.index')->with('success','Berhasil Import PO');   
+            $fileArray = Excel::toArray(new ImportUser, $request->file('file')->store('files'));
+            // dd($fileArray[0]);
+            foreach ($fileArray[0] as $key){
+                $id = intval($key[5]);
+                $data = DB::table('users')->where('id','=',$id)->get();
+                foreach($data as $d){
+                    if($d->id == $id){
+                        if($request['role'] === "2"){
+                            Excel::import(new ImportUser, $request->file('file')->store('files'));
+                            return redirect()->route('hki.po.subcon.index')->with('success','Berhasil Import PO');
+                        }else{
+                            Excel::import(new ImportSupplier,
+                            $request->file('file')->store('files'));
+                            return redirect()->route('hki.po.supplier.index')->with('success','Berhasil Import PO');   
+                        }
+                    }else{
+                        return redirect()->route('hki.po.subcon.index')->with('success','Gagal Import PO');   
+                    }
+                }
             }
         }
         
